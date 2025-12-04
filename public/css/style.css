@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+/* DetailBooks start */
+#DetailBooks {
+
+}
+
+#DetailBooks .card {
+    width: 1200px;
+    height: auto;
+}
+
+#DetailBooks .card-header {
+
+}
+
+#DetailBooks .card-body {
+
+}
+
+#DetailBooks .card-body img {
+    width: 500px;
+}
+
+#DetailBooks .card-footer {
+
+}
+
+/* DetailBooks end */

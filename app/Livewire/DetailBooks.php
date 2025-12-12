@@ -26,6 +26,11 @@ class DetailBooks extends Component
         $this->detailbooks = BooksModel::findOrFail($id);
     }
 
+    // back
+    public function back(){
+        return redirect()->route('dashboard');
+    }
+
     // edit
     public function EditBooks($id){
         return redirect(route('books.edit', $id));
@@ -48,7 +53,7 @@ class DetailBooks extends Component
             $this->reset();
 
             // return $this->redirect(url()->previous());
-            return redirect()->route('books');
+            return redirect()->route('dashboard');
         }
     }
 

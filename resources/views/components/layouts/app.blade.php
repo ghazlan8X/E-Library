@@ -10,8 +10,10 @@
     </head>
     <body>
         <header>
-            <a href="/books">home</a>
-            <a href="/books/create">create</a>
+            <div class="header">
+                <a href="/">home</a>
+                <a href="/books/create">create</a>
+            </div>
         </header>
 
         <main>

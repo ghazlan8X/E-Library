@@ -6,7 +6,7 @@
         <div>
             {{-- <img src="{{ $photo->temporaryUrl() }}" alt=""> --}}
             {{ $book->title }}                    
-            <img style="width:100px" src="{{ Storage::url($book->photo) }}" alt="">
+            <img src="{{ Storage::url($book->photo) }}" alt="">
 
             <button wire:click='detail({{ $book->id }})'>view</button>
         </div>

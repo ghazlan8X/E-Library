@@ -14,6 +14,7 @@ class EditBooks extends Component
     public BooksModel $books;
     public $id;
     public $title;
+    public $writer;
     public $synopsis;
     public $photo; //for new photo
     public $oldPhoto;
@@ -28,27 +29,29 @@ class EditBooks extends Component
         $this->books = BooksModel::findOrfail($id);
 
         // mengisi variable title dengan title yg ada di variable books
-        $this->id = $this->books->id;
-        $this->title = $this->books->title;
-        $this->synopsis = $this->books->synopsis;
-        $this->photo = null; //new photo
-        $this->oldPhoto = $this->books->photo;
-        $this->publisher = $this->books->publisher;
-        $this->release = $this->books->release;
-        $this->isbn = $this->books->isbn;
-        $this->page = $this->books->page;
+        $this->id           = $this->books->id;
+        $this->title        = $this->books->title;
+        $this->writer        = $this->books->writer;
+        $this->synopsis     = $this->books->synopsis;
+        $this->photo        = null; //new photo
+        $this->oldPhoto     = $this->books->photo;
+        $this->publisher    = $this->books->publisher;
+        $this->release      = $this->books->release;
+        $this->isbn         = $this->books->isbn;
+        $this->page     = $this->books->page;
     }
 
     public function save($id)
     {
-        $this->validate([
-            'title' => 'required|string',
-            'synopsis' => 'required|string',
-            'photo' => 'nullable|image',
+        $validatedData=  $this->validate([
+            'title'     => 'required|string',
+            'writer'    => 'required|string',
+            'synopsis'  => 'required|string',
+            'photo'     => 'nullable|image',
             'publisher' => 'required|string',
-            'release' => 'required|date',
-            'isbn' => 'required|integer|digits:13|unique:books,isbn,' . $this->id,
-            'page' => 'required|integer|min:1'
+            'release'   => 'required|date',
+            'isbn'      => 'required|integer|digits:13|unique:books,isbn,' . $this->id,
+            'page'      => 'required|integer|min:1'
         ]);
 
         if ($this->photo) {
@@ -71,6 +74,7 @@ class EditBooks extends Component
 
         $this->books->update([
             'title' => $validatedData['title'],
+            'writer' => $validatedData['writer'],
             'synopsis' => $validatedData['synopsis'],
             'publisher' => $validatedData['publisher'],
             'release' => $validatedData['release'],
@@ -80,6 +84,11 @@ class EditBooks extends Component
         ]);
 
         return redirect()->route('books.detail', $id);
+    }
+
+    // back
+    public function back(){
+        return redirect()->route('dashboard');
     }
 
     public function render()

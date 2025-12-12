@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,30 +8,362 @@ body {
     scroll-behavior: smooth;
 }
 
-/* DetailBooks start */
-#DetailBooks {
+/* header start */
+header {
+}
 
+.header {
+    display: flex;
+    align-items: center;
+    width: 1200px;
+    height: 60px;
+    margin: 0 auto;
+    gap: 20px;
+}
+/* header end */
+
+.img {
+    width: 200px;
+    height: 300px;
+    background-color: aqua;
+}
+
+/* default start */
+.container {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    padding: 25px 0;
+}
+/* default end */
+
+/* Dashboard page start */
+/* hero section start */
+#hero {
+}
+/* hero section end */
+
+/* BooksList section start */
+#BooksList {
+}
+
+#BooksList .BooksList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    justify-content: start;
+    gap: 50px;  
+    row-gap: 20px;
+    /* padding: 0 50px; */
+}
+
+#BooksList .BooksList .card {
+    width: 200px;
+    height: 300px;
+    border: 0.5px solid #000;
+    border-radius: 20px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+#BooksList .BooksList .card img {
+    width: 100%;
+    height: 100%;
+}
+/* BooksList section end */
+/* Dashboard page end */
+
+/* CreateBooks page start */
+#BooksForm {
+}
+
+#BooksForm .card {
+    width: 100%;
+    height: auto;
+    border: 0.5px solid #000;
+    border-radius: 20px;
+}
+
+#BooksForm .card-header {
+    border-bottom: 0.5px solid #000;
+    padding: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#BooksForm .card-header h1 {
+}
+
+#BooksForm .card-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-top: 1rem;
+}
+
+#BooksForm .card-body form .row {
+    display: flex;
+    width: 100%;
+    gap: 5%;
+    padding: 0 1rem;
+}
+
+#BooksForm .card-body form .input-5 {
+    display: flex;
+    flex-direction: column;
+    width: 47.5%;
+    /* background-color: aqua; */
+}
+
+#BooksForm .card-body form label {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+#BooksForm .card-body form input {
+    font-size: 1rem;
+    outline: none;
+    border: 0.5px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#BooksForm .card-body form p {
+    color: red;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+#BooksForm .card-body form img {
+    width: 75px;
+    height: 100px;
+    object-fit: contain;
+    object-position: center;
+}
+
+#BooksForm .card-body form textarea {
+    font-size: 1rem;
+    outline: none;
+    border: 0.5px solid #000;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+#BooksForm .card-body form .preview {
+    color: #000;
+    font-size: 1.2rem;
+}
+
+#BooksForm .card-body form .input-10 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* input-photo start */
+#BooksForm .card-body form .input-photo {
+    display: flex;
+    width: 47.5%;
+}
+
+#BooksForm .card-body form .input-photo-5 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+    
+#BooksForm .card-body form .row .input-photo .input-photo-5 input {
+    font-size: 1rem;
+    outline: none;
+    border: 0px solid #000;
+    /* border-radius: 10px; */
+    padding: 10px;
+}
+
+#BooksForm .card-body form .row .input-photo p {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+/* input-photo end */
+
+/* btn start*/
+#BooksForm .card-body form .btn-menu {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    gap: 20px;
+    border-top: 0.5px solid #000;
+    padding: 1rem;
+}
+
+#BooksForm .card-body form .back-btn {
+    color: #000;
+    font-size: 1.2rem;
+    background-color: #fff;
+    border: 0.5px solid #000;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+#BooksForm .card-body form .submit-btn {
+    color: #fff;
+    font-size: 1.2rem;
+    background-color: #1e88e5;
+    border: 0;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+/* btn end */
+
+/* BooksForm page end */
+
+/* DetailBooks page start */
+#DetailBooks {
+    padding: 20px 0;
 }
 
 #DetailBooks .card {
     width: 1200px;
     height: auto;
+    border: 0.5px solid #000;
+    border-radius: 20px;
 }
 
 #DetailBooks .card-header {
+    width: 100%;
+    border-bottom: 0.5px solid #000;
+    padding: 1rem;
+}
 
+#DetailBooks .card-header h1 {
+    font-size: 2.5rem;
 }
 
 #DetailBooks .card-body {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+}
+
+#DetailBooks .card-body .card-img {
+   width: 35%;
+   padding: 1rem;
+}
+
+#DetailBooks .card-body .card-img img {
+    width: 95%;
+    box-shadow: 5px 5px 1px black;
+}
+
+#DetailBooks .card-body .card-detail {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    gap: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#DetailBooks .card-body .card-detail .detail-item {
 
 }
 
-#DetailBooks .card-body img {
-    width: 500px;
+#DetailBooks .card-body .card-detail .detail-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
 }
 
+#DetailBooks .card-body .card-detail .writer {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#DetailBooks .card-body .card-detail .writer p {
+    color: gray;
+    font-size: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#DetailBooks .card-body .card-detail .synopsis {
+    width: 100%;
+    height: 150px;
+    font-size: 1.2rem;
+    border: 0.5px solid #000;
+    border-radius: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding: 0.5rem 0.5rem;
+}
+
+#DetailBooks .card-body .card-detail .card-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+} 
+
+#DetailBooks .card-body .card-detail .card-info .row {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+#DetailBooks .card-body .card-detail .card-info .row .info-item {
+    width: 50%;
+    font-size: 1.3rem;
+}
+
+#DetailBooks .card-body .card-detail .card-info .row .info-item h3 {
+    font-size: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* card-footer */
 #DetailBooks .card-footer {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    border-top: 0.5px solid #000;
+    padding: 1rem;
+}
 
+#DetailBooks .card-footer .back-btn {
+    color: #000;
+    font-size: 1.2rem;
+    border: 0.5px solid #000;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+#DetailBooks .card-footer .edit-btn {
+    color: #fff;
+    font-size: 1.2rem;
+    border: 0.5px solid #1e88e5;
+    border-radius: 10px;
+    background-color: #1e88e5;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+#DetailBooks .card-footer .delete-btn {
+    color: #fff;
+    font-size: 1.2rem;
+    border: 0.5px solid red;
+    border-radius: 10px;
+    background-color: red;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 }
 
 /* DetailBooks end */

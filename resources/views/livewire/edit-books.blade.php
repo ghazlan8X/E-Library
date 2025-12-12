@@ -1,64 +1,98 @@
 <div>
-    <h1> edit {{ $title }} </h1>
+    <section id="BooksForm">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1> edit {{ $title }} </h1>
+                </div>
 
-    <form wire:submit.prevent='save' action="">
+                <div class="card-body">
+                    <form wire:submit.prevent='save({{ $id }})' action="">
 
-        <div>
-            <label for="title"></label>
-            <input wire:model='title' type="text" id="title" placeholder="input title">
-            @error('title')
-                <p> {{ $message }} </p>
-            @enderror <br>
+                        <div class="row">
+                            <div class="input-5">
+                                <label for="title">Title</label>
+                                <input wire:model='title' type="text" id="title" placeholder="Enter Book Title">
+                                @error('title')
+                                    <p> {{ $message }} </p>
+                                @enderror <br>
+                            </div>
+
+                            <div class="input-5">
+                                <label for="writer">Writer</label>
+                                <input wire:model='writer' type="text" id="writer"
+                                    placeholder="Enter Book Writer">
+                                @error('writer')
+                                    <p> {{ $message }} </p>
+                                @enderror <br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-10">
+                                <label for="synopsis">Synopsis</label>
+                                <textarea wire:model='synopsis' id="synopsis" placeholder="Enter Book Synopsis"></textarea>
+                                @error('synopsis')
+                                    <p> {{ $message }} </p>
+                                @enderror <br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-photo">
+                                <div class="input-photo-5">
+                                    <label for="photo">Book Cover</label>
+                                    <input wire:model='photo' type="file" id="photo"
+                                        accept="image/png, image/jpg, image/jpeg" placeholder="Enter Book Cover">
+                                    @error('photo')
+                                        <p> {{ $message }} </p>
+                                    @enderror <br>
+                                </div>
+
+                                <div class="input-photo-5">
+                                    <p class="preview">Prefiew</p>
+                                    @if ($photo)
+                                        <img src="{{ $photo->temporaryUrl() }}" alt="">
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="input-5">
+                                <label for="publisher">Publisher</label>
+                                <input wire:model='publisher' type="text" id="publisher"
+                                    placeholder="Enter Book Publisher">
+                                @error('publisher')
+                                    <p> {{ $message }} </p>
+                                @enderror <br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-5">
+                                <label for="release">Release</label>
+                                <input wire:model='release' type="date" id="release"
+                                    placeholder="Enter Book Release Date">
+                                @error('release')
+                                    <p> {{ $message }} </p>
+                                @enderror <br>
+                            </div>
+
+                            <div class="input-5">
+                                <label for="page">Page</label>
+                                <input wire:model='page' type="number" id="page" placeholder="Enter Book Page">
+                                @error('page')
+                                    <p> {{ $message }} </p>
+                                @enderror <br>
+                            </div>
+                        </div>
+
+                        <div class="btn-menu">
+                            <button wire:click='back' class="back-btn">back</button>
+                            <button class="submit-btn" type="submit">save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div>
-            <textarea wire:model='synopsis' id="synopsis" cols="30" rows="10"></textarea>
-            @error('synopsis')
-                <p> {{ $message }} </p>
-            @enderror <br>
-        </div>
-
-        <div>
-            <input wire:model='photo' type="file" id="photo" accept="image/png, image/jpg, image/jpeg"
-                placeholder="input title">
-            @error('photo')
-                <p> {{ $message }} </p>
-            @enderror <br>
-
-            @if ($photo)
-                <p>prefiew</p>
-                <img src="{{ $photo->temporaryUrl() }}" alt="">
-            @endif
-        </div>
-
-        <div>
-            <input wire:model='publisher' type="text" id="publisher" placeholder="publisher">
-            @error('publisher')
-                <p> {{ $message }} </p>
-            @enderror <br>
-        </div>
-
-        <div>
-            <input wire:model='release' type="date" id="release" placeholder="release date">
-            @error('release')
-                <p> {{ $message }} </p>
-            @enderror <br>
-        </div>
-
-        <div>
-            <input wire:model='isbn' type="number" id="isbn" placeholder="isbn">
-            @error('isbn')
-                <p> {{ $message }} </p>
-            @enderror <br>
-        </div>
-
-        <div>
-            <input wire:model='page' type="number" id="page" placeholder="page">
-            @error('page')
-                <p> {{ $message }} </p>
-            @enderror <br>
-        </div>
-
-        <button wire:click.prevent="save({{ $id }})">save</button>
-    </form>
+    </section>
 </div>

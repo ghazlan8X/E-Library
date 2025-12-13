@@ -11,8 +11,14 @@
     <body>
         <header>
             <div class="header">
-                <a href="/">home</a>
-                <a href="/books/create">create</a>
+                <a href="/">Dashboard</a>
+                <a href="/books/create">Create</a>
+                @guest
+                    <a href="/login">Login</a>
+                @endguest
+                @auth
+                    @livewire('logout')
+                @endauth
             </div>
         </header>
 

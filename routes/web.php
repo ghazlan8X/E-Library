@@ -5,15 +5,24 @@ use App\Livewire\CreateBooks;
 use App\Livewire\Dashboard;
 use App\Livewire\DetailBooks;
 use App\Livewire\EditBooks;
+use App\Livewire\Login;
+use App\Livewire\Register;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
+// login
+Route::get('/login', Login::class)->name('login');
+
+// register
+Route::get('/register', Register::class);
+
+// dashboard
 Route::get('/', Dashboard::class)->name('dashboard');
 
-Route::get('/books', Books::class)->name('books');
+// Route::get('/books', Books::class)->name('books');
 
 // create product
 Route::get('/books/create', CreateBooks::class)->name('books.create');

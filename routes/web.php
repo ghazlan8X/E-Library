@@ -13,22 +13,28 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// login
-Route::get('/login', Login::class)->name('login');
+Route::middleware('guest')->group(function () {
+    // login
+    Route::get('/login', Login::class)->name('login');
 
-// register
-Route::get('/register', Register::class);
+    // register
+    Route::get('/register', Register::class)->name('register');
+});
 
-// dashboard
-Route::get('/', Dashboard::class)->name('dashboard');
+Route::middleware('auth')->group(function () {
+    // dashboard
+    Route::get('/', Dashboard::class)->name('dashboard');
+
+    // detail product
+    Route::get('/books/detail/{id}', DetailBooks::class)->name('books.detail');
+
+    Route::middleware('admin')->group(function () {
+        // create product
+        Route::get('/books/create', CreateBooks::class)->name('books.create');
+    
+        // edit product
+        Route::get('/books/edit/{id}', EditBooks::class)->name('books.edit');
+    });
+});
 
 // Route::get('/books', Books::class)->name('books');
-
-// create product
-Route::get('/books/create', CreateBooks::class)->name('books.create');
-
-// edit product
-Route::get('/books/edit/{id}', EditBooks::class)->name('books.edit');
-
-// detail product
-Route::get('/books/detail/{id}', DetailBooks::class)->name('books.detail');
